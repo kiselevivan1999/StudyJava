@@ -4,8 +4,9 @@ public class Cat
     private double originWeight;
     private double weight;
 
-    private double minWeight;
-    private double maxWeight;
+    private static final double NUMBER_YEARS = 2;
+    private static final double MIN_WEIGHT = 1000.0;
+    private static final double MAX_WEIGHT = 9000.0;
 
     private double sumFeed;
     static private int count = 0;
@@ -15,8 +16,6 @@ public class Cat
     {
         weight = 1500.0 + 3000.0 * Math.random();
         originWeight = weight;
-        minWeight = 1000.0;
-        maxWeight = 9000.0;
         sumFeed = 0;
         checkDead = true;
 
@@ -86,12 +85,12 @@ public class Cat
     public String getStatus()
     {
 
-        if(weight < minWeight) {
+        if(weight < MIN_WEIGHT) {
             minusCount();
             checkDead = false;
             return "Dead";
         }
-        else if(weight > maxWeight) {
+        else if(weight > MAX_WEIGHT) {
             minusCount();
             checkDead = false;
             return "Exploded";
