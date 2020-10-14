@@ -4,38 +4,15 @@ public class Loader
     public static void main(String[] args)
     {
         Cat baron = new Cat();
-        Cat kotlin = new Cat();
-        Cat fox = new Cat();
-        Cat geep = new Cat();
-        Cat xiaomi = new Cat();
-        Cat google = new Cat();
 
-        System.out.print("Вес голодных котов: ");
-        PrintWeight(baron);
-        PrintWeight(kotlin);
+        baron.feed(150.0);
 
-        baron.feed(1025.5);
-        kotlin.feed(16678.8);
-
-        System.out.print("Вес сытых котов: ");
-        PrintWeight(baron);
-        PrintWeight(kotlin);
-
-        System.out.print("Кот переел: ");
-        PrintStatus(kotlin);
-
-        while(true)
+        for(int i = 0; i < 5; i++)
         {
-            xiaomi.meow(); //функция вызывается без мяуканья
-            if(xiaomi.getStatus() == "Dead")
-            {
-                break;
-            }
+            baron.pee();
         }
 
-        System.out.print("Кот перемяукал: ");
-        PrintStatus(xiaomi);
-
+        System.out.println("Всего съедено: " + baron.getFeed(0.0));
     }
 
     public static void PrintWeight(Cat cat)
