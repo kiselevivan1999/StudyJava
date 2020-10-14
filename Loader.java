@@ -4,15 +4,16 @@ public class Loader
     public static void main(String[] args)
     {
         Cat baron = new Cat();
+        Cat kia = new Cat();
+        Cat kot = new Cat();
+        Cat aloe = new Cat();
 
-        baron.feed(150.0);
+        baron.feed(15000.0);
+        baron.getStatus();
+        baron.feed(100.0);
 
-        for(int i = 0; i < 5; i++)
-        {
-            baron.pee();
-        }
+        System.out.println("Живых кошек: " + Cat.getCount());
 
-        System.out.println("Всего съедено: " + baron.getFeed(0.0));
     }
 
     public static void PrintWeight(Cat cat)

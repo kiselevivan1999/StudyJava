@@ -8,6 +8,8 @@ public class Cat
     private double maxWeight;
 
     private double sumFeed;
+    static private int count = 0;
+    private boolean checkDead;
 
     public Cat()
     {
@@ -16,30 +18,59 @@ public class Cat
         minWeight = 1000.0;
         maxWeight = 9000.0;
         sumFeed = 0;
+        checkDead = true;
 
+        count++;
     }
 
     public void meow()
     {
-        weight = weight - 1;
-    //    System.out.println("Meow"); для читабельности результата
+        if(checkDead) {
+            weight = weight - 1;
+            //    System.out.println("Meow"); для читабельности результата
+        }
     }
 
     public void feed(Double amount)
     {
-        weight = weight + amount;
-        getFeed(amount);
+        if(checkDead) {
+            weight = weight + amount;
+            getFeed(amount);
+        }
+        else
+            System.out.println("Cat dead");
     }
 
     public void drink(Double amount)
     {
-        weight = weight + amount;
+        if(checkDead) {
+            weight = weight + amount;
+        }
+        else
+            System.out.println("Cat dead");
     }
 
     public void pee()
     {
-        weight = weight - 10;
-        System.out.println("pee");
+        if(checkDead) {
+            weight = weight - 10;
+            System.out.println("pee");
+        }
+        else
+            System.out.println("Cat dead");
+    }
+
+    static public int getCount()
+    {
+        return count;
+    }
+
+    public void minusCount()
+    {
+        if(checkDead)
+        {
+            count--;
+        }
     }
 
     public Double getFeed(double amount)
@@ -54,10 +85,15 @@ public class Cat
 
     public String getStatus()
     {
+
         if(weight < minWeight) {
+            minusCount();
+            checkDead = false;
             return "Dead";
         }
         else if(weight > maxWeight) {
+            minusCount();
+            checkDead = false;
             return "Exploded";
         }
         else if(weight > originWeight) {
@@ -67,4 +103,5 @@ public class Cat
             return "Playing";
         }
     }
+
 }
