@@ -3,6 +3,7 @@ public class Cat
 {
     private double originWeight;
     private double weight;
+    Color colorCat = Color.BLACK;
 
     private static final double NUMBER_YEARS = 2;
     private static final double MIN_WEIGHT = 1000.0;
@@ -26,6 +27,16 @@ public class Cat
     {
         this();
         this.weight = weight;
+    }
+
+    public Color getColorCat()
+    {
+        return colorCat;
+    }
+
+    public void setColorCat(Color colorCat)
+    {
+        this.colorCat = colorCat;
     }
 
     public void meow()
