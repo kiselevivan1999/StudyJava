@@ -3,17 +3,20 @@ public class Loader
 {
     public static void main(String[] args)
     {
-        Cat baron = new Cat();
-        Cat kia = new Cat();
-        Cat kot = new Cat();
-        Cat aloe = new Cat();
+        final int SIZE_ARRAY = 3;
 
-        baron.feed(15000.0);
-        baron.getStatus();
-        baron.feed(100.0);
+        Cat[] cats = new Cat[SIZE_ARRAY];
 
-        System.out.println("Живых кошек: " + Cat.getCount());
+        for(int i = Cat.getCount(); i < SIZE_ARRAY; i++) {
+            cats[i] = getKitten();
+            PrintWeight(cats[i]);
+        }
+    }
 
+    private static Cat getKitten()
+    {
+        Cat cat = new Cat(1100.0);
+        return cat;
     }
 
     public static void PrintWeight(Cat cat)
